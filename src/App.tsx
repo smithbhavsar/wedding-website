@@ -5,84 +5,73 @@ import Hero from './components/Hero';
 import VideoReel from './components/VideoReel';
 import MemorySection from './components/MemorySection';
 import GalleryPage from './components/GalleryPage';
-import m1 from './assets/Mehendi/JAY07217.jpg';
-import m2 from './assets/Mehendi/JAY06628.jpg';
-
-const importImages = (folder: string): string[] => {
-  const allImages = import.meta.glob('../assets/**/*.{jpg,jpeg,png,gif}', { eager: true });
-
-  return Object.keys(allImages)
-    .filter((path) => path.includes(`/assets/${folder}/`)) // Ensure correct path matching
-    .map((path) => (allImages[path] as { default: string }).default);
-};
-
-const mehendiImages = Object.values(
-  import.meta.glob('./assets/Mehendi/*.{jpg,jpeg,png,gif}', { eager: true })
-).map((img) => (img as { default: string }).default);
-
-console.log("This is a log",mehendiImages);
 
 function App() {
-
   const memories = [
     {
       title: 'Mehendi',
       description: 'The beautiful beginning of our wedding celebrations, where art and love intertwined on your hands.',
-      images: [m1,m2],
-      galleryImages: importImages('Mehendi')
+      images: [
+        './src/assets/mehendi/JAY07217.jpg',
+        './src/assets/mehendi/JAY06628.jpg',
+      ],
+      galleryImages: [
+        '../src/assets/mehendi/JAY06479.jpg',
+        '../src/assets/mehendi/JAY06489.jpg',
+        '../src/assets/mehendi/JAY06504.jpg',
+        '../src/assets/mehendi/JAY06532.jpg',
+        '../src/assets/mehendi/JAY06535.jpg',
+        '../src/assets/mehendi/JAY06584.jpg',
+        '../src/assets/mehendi/JAY06605.jpg',
+        '../src/assets/mehendi/JAY06628.jpg',
+        '../src/assets/mehendi/JAY06847.jpg',
+        '../src/assets/mehendi/JAY06921.jpg',
+        '../src/assets/mehendi/JAY07120.jpg',
+        '../src/assets/mehendi/JAY07128.jpg',
+        '../src/assets/mehendi/JAY07217.jpg',
+        '../src/assets/mehendi/JAY07242.jpg',
+        '../src/assets/mehendi/JAY07253.jpg',
+      ]
     },
     {
       title: 'Sangeet',
       description: 'A night filled with music, dance, and endless joy as our families celebrated our union.',
       images: [
-        'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200',
+        '/assets/sangeet/preview1.jpg',
+        '/assets/sangeet/preview2.jpg',
       ],
-      galleryImages: importImages('Sangeet')
+      galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/sangeet/image${i + 1}.jpg`)
     },
     {
       title: 'Haldi',
       description: 'Blessed with turmeric and surrounded by the warmth of our loved ones.',
       images: [
-        'https://images.unsplash.com/photo-1630932362402-4e9f2b64c0bf?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1617206674438-1a293860d462?auto=format&fit=crop&q=80&w=1200',
+        '/assets/haldi/preview1.jpg',
+        '/assets/haldi/preview2.jpg',
       ],
-      galleryImages: [
-        'https://images.unsplash.com/photo-1630932362402-4e9f2b64c0bf?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1617206674438-1a293860d462?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1604430456280-43f652c497aa?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1587473555771-96aedec8f196?auto=format&fit=crop&q=80&w=1200',
-      ]
+      galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/haldi/image${i + 1}.jpg`)
     },
     {
       title: 'Marriage',
       description: 'The moment we became one, promising forever under the sacred fire.',
       images: [
-        'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1583939411023-14783179e581?auto=format&fit=crop&q=80&w=1200',
+        '/assets/marriage/preview1.jpg',
+        '/assets/marriage/preview2.jpg',
       ],
-      galleryImages: [
-        'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1583939411023-14783179e581?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200',
-      ]
+      galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/marriage/image${i + 1}.jpg`)
     },
     {
       title: 'Reception',
       description: 'A grand celebration of our love with friends and family, dancing the night away in pure joy.',
       images: [
-        'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200',
+        '/assets/reception/preview1.jpg',
+        '/assets/reception/preview2.jpg',
       ],
-      galleryImages: [
-        'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200',
-      ]
+      galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/reception/image${i + 1}.jpg`)
     }
   ];
+
+  console.log(memories);
 
   return (
     <Routes>
