@@ -5,22 +5,31 @@ import Hero from './components/Hero';
 import VideoReel from './components/VideoReel';
 import MemorySection from './components/MemorySection';
 import GalleryPage from './components/GalleryPage';
+import m1 from './assets/Mehendi/JAY07217.jpg';
+import m2 from './assets/Mehendi/JAY06628.jpg';
+
+const importImages = (folder: string): string[] => {
+  const allImages = import.meta.glob('../assets/**/*.{jpg,jpeg,png,gif}', { eager: true });
+
+  return Object.keys(allImages)
+    .filter((path) => path.includes(`/assets/${folder}/`)) // Ensure correct path matching
+    .map((path) => (allImages[path] as { default: string }).default);
+};
+
+const mehendiImages = Object.values(
+  import.meta.glob('./assets/Mehendi/*.{jpg,jpeg,png,gif}', { eager: true })
+).map((img) => (img as { default: string }).default);
+
+console.log("This is a log",mehendiImages);
 
 function App() {
+
   const memories = [
     {
       title: 'Mehendi',
       description: 'The beautiful beginning of our wedding celebrations, where art and love intertwined on your hands.',
-      images: [
-        'https://images.unsplash.com/photo-1604430456280-43f652c497aa?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1587473555771-96aedec8f196?auto=format&fit=crop&q=80&w=1200',
-      ],
-      galleryImages: [
-        'https://images.unsplash.com/photo-1604430456280-43f652c497aa?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1587473555771-96aedec8f196?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1617206674438-1a293860d462?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1630932362402-4e9f2b64c0bf?auto=format&fit=crop&q=80&w=1200',
-      ]
+      images: [m1,m2],
+      galleryImages: importImages('Mehendi')
     },
     {
       title: 'Sangeet',
@@ -29,12 +38,7 @@ function App() {
         'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200',
         'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200',
       ],
-      galleryImages: [
-        'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1583939411023-14783179e581?auto=format&fit=crop&q=80&w=1200',
-        'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=1200',
-      ]
+      galleryImages: importImages('Sangeet')
     },
     {
       title: 'Haldi',
