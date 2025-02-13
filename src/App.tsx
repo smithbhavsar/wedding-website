@@ -5,17 +5,16 @@ import Hero from './components/Hero';
 import VideoReel from './components/VideoReel';
 import MemorySection from './components/MemorySection';
 import GalleryPage from './components/GalleryPage';
-import JAY07217 from './assets/mehendi/JAY07217.JPG';
-import JAY06628 from './assets/mehendi/JAY06628.JPG';
-
-export const images = [JAY07217, JAY06628] 
 
 function App() {
   const memories = [
     {
       title: 'Mehendi',
       description: 'The beautiful beginning of our wedding celebrations, where art and love intertwined on your hands.',
-      images: images,
+      images: [
+        './src/assets/mehendi/JAY07217.jpg',
+        './src/assets/mehendi/JAY06489.jpg',
+      ],
       galleryImages: [
         '../src/assets/mehendi/JAY06479.jpg',
         '../src/assets/mehendi/JAY06489.jpg',
@@ -42,21 +41,53 @@ function App() {
         './src/assets/sangeet/JAY07370.jpg',
       ],
       galleryImages: [
-        '../src/assets/sangeet/JAY06479.jpg',
-        '../src/assets/sangeet/JAY06489.jpg',
-        '../src/assets/sangeet/JAY06504.jpg',
-        '../src/assets/sangeet/JAY06532.jpg',
-        '../src/assets/sangeet/JAY06535.jpg',
-        '../src/assets/sangeet/JAY06584.jpg',
-        '../src/assets/sangeet/JAY06605.jpg',
-        '../src/assets/sangeet/JAY06628.jpg',
-        '../src/assets/sangeet/JAY06847.jpg',
-        '../src/assets/sangeet/JAY06921.jpg',
-        '../src/assets/sangeet/JAY07120.jpg',
-        '../src/assets/sangeet/JAY07128.jpg',
-        '../src/assets/sangeet/JAY07217.jpg',
-        '../src/assets/sangeet/JAY07242.jpg',
-        '../src/assets/sangeet/JAY07253.jpg',
+        '../src/assets/sangeet/JAY07283.JPG',
+        '../src/assets/sangeet/JAY07329.JPG',
+        '../src/assets/sangeet/JAY07330.JPG',
+        '../src/assets/sangeet/JAY07364.JPG',
+        '../src/assets/sangeet/JAY07367.JPG',
+        '../src/assets/sangeet/JAY07370.JPG',
+        '../src/assets/sangeet/JAY07391.JPG',
+        '../src/assets/sangeet/JAY07401.JPG',
+        '../src/assets/sangeet/JAY07410.JPG',
+        '../src/assets/sangeet/JAY07461.JPG',
+        '../src/assets/sangeet/JAY07481.JPG',
+        '../src/assets/sangeet/JAY07514.JPG',
+        '../src/assets/sangeet/JAY07526.JPG',
+        '../src/assets/sangeet/JAY07529.JPG',
+        '../src/assets/sangeet/JAY07545.JPG',
+        '../src/assets/sangeet/JAY07550.JPG',
+        '../src/assets/sangeet/JAY07608.JPG',
+        '../src/assets/sangeet/JAY07623.JPG',
+        '../src/assets/sangeet/JAY07703.JPG',
+        '../src/assets/sangeet/JAY07737.JPG',
+        '../src/assets/sangeet/JAY07763.JPG',
+        '../src/assets/sangeet/JAY07769.JPG',
+        '../src/assets/sangeet/JAY07785.JPG',
+        '../src/assets/sangeet/JAY07858.JPG',
+        '../src/assets/sangeet/JAY07926.JPG',
+        '../src/assets/sangeet/JAY07950.JPG',
+        '../src/assets/sangeet/JAY07975.JPG',
+        '../src/assets/sangeet/JAY07996.JPG',
+        '../src/assets/sangeet/JAY08017.JPG',
+        '../src/assets/sangeet/JAY08041.JPG',
+        '../src/assets/sangeet/JAY08115.JPG',
+        '../src/assets/sangeet/JAY08135.JPG',
+        '../src/assets/sangeet/JAY08156.JPG',
+        '../src/assets/sangeet/JAY08178.JPG',
+        '../src/assets/sangeet/JAY08191.JPG',
+        '../src/assets/sangeet/JAY08200.JPG',
+        '../src/assets/sangeet/JAY08216.JPG',
+        '../src/assets/sangeet/JAY08233.JPG',
+        '../src/assets/sangeet/JAY08258.JPG',
+        '../src/assets/sangeet/JAY08264.JPG',
+        '../src/assets/sangeet/JAY08311.JPG',
+        '../src/assets/sangeet/JAY08448.JPG',
+        '../src/assets/sangeet/JAY08462.JPG',
+        '../src/assets/sangeet/JAY08465.JPG',
+        '../src/assets/sangeet/JAY08479.JPG',
+        '../src/assets/sangeet/JAY08487.JPG',
+        '../src/assets/sangeet/JAY08492.JPG'
       ]
     },
     {
