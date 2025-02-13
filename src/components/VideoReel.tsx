@@ -39,7 +39,7 @@ const VideoReel = () => {
             playsInline
           >
             <source
-              src="/assets/wedding-reel.mp4"
+              src={weddingVideo}
               type="video/mp4"
             />
           </video>
