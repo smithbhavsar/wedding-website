@@ -5,16 +5,17 @@ import Hero from './components/Hero';
 import VideoReel from './components/VideoReel';
 import MemorySection from './components/MemorySection';
 import GalleryPage from './components/GalleryPage';
+import JAY07217 from './assets/mehendi/JAY07217.JPG';
+import JAY06628 from './assets/mehendi/JAY06628.JPG';
+
+export const images = [JAY07217, JAY06628] 
 
 function App() {
   const memories = [
     {
       title: 'Mehendi',
       description: 'The beautiful beginning of our wedding celebrations, where art and love intertwined on your hands.',
-      images: [
-        './src/assets/mehendi/JAY07217.jpg',
-        './src/assets/mehendi/JAY06628.jpg',
-      ],
+      images: images,
       galleryImages: [
         '../src/assets/mehendi/JAY06479.jpg',
         '../src/assets/mehendi/JAY06489.jpg',
@@ -37,10 +38,26 @@ function App() {
       title: 'Sangeet',
       description: 'A night filled with music, dance, and endless joy as our families celebrated our union.',
       images: [
-        '/assets/sangeet/preview1.jpg',
-        '/assets/sangeet/preview2.jpg',
+        './src/assets/sangeet/JAY07367.jpg',
+        './src/assets/sangeet/JAY07370.jpg',
       ],
-      galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/sangeet/image${i + 1}.jpg`)
+      galleryImages: [
+        '../src/assets/sangeet/JAY06479.jpg',
+        '../src/assets/sangeet/JAY06489.jpg',
+        '../src/assets/sangeet/JAY06504.jpg',
+        '../src/assets/sangeet/JAY06532.jpg',
+        '../src/assets/sangeet/JAY06535.jpg',
+        '../src/assets/sangeet/JAY06584.jpg',
+        '../src/assets/sangeet/JAY06605.jpg',
+        '../src/assets/sangeet/JAY06628.jpg',
+        '../src/assets/sangeet/JAY06847.jpg',
+        '../src/assets/sangeet/JAY06921.jpg',
+        '../src/assets/sangeet/JAY07120.jpg',
+        '../src/assets/sangeet/JAY07128.jpg',
+        '../src/assets/sangeet/JAY07217.jpg',
+        '../src/assets/sangeet/JAY07242.jpg',
+        '../src/assets/sangeet/JAY07253.jpg',
+      ]
     },
     {
       title: 'Haldi',
@@ -71,13 +88,11 @@ function App() {
     }
   ];
 
-  console.log(memories);
-
   return (
     <Routes>
       <Route path="/" element={
         <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
-          <Hero />
+          {/* <Hero />
           <VideoReel />
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -94,7 +109,9 @@ function App() {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
+          <img src={JAY07217} alt="mehendi" />
+          <img src={JAY06628} alt="mehendi" />
         </div>
       } />
       <Route path="/gallery/:event" element={<GalleryPage memories={memories} />} />
