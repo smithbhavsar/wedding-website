@@ -92,7 +92,7 @@ function App() {
     <Routes>
       <Route path="/" element={
         <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
-          {/* <Hero />
+          <Hero />
           <VideoReel />
           <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -109,9 +109,7 @@ function App() {
                 />
               ))}
             </div>
-          </div> */}
-          <img src={JAY07217} alt="mehendi" />
-          <img src={JAY06628} alt="mehendi" />
+          </div>
         </div>
       } />
       <Route path="/gallery/:event" element={<GalleryPage memories={memories} />} />
