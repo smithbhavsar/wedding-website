@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const VideoReel = () => {
   return (
     <div className="relative h-screen bg-black">
