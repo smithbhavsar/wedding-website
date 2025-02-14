@@ -17,6 +17,8 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
+  console.log('memory', memory?.galleryImages);
+
   if (!memory) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">

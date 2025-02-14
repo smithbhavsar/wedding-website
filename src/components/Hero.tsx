@@ -1,12 +1,11 @@
 import React from 'react';
-import weddingBg from '../assets/wedding-bg.jpg';
 
 const Hero = () => {
   return (
     <div className="relative h-screen flex items-start justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src={weddingBg}
+          src='/assets/wedding-bg.jpg'
           alt="Wedding Background"
           className="w-full h-full object-cover"
         />

@@ -1,5 +1,5 @@
 import React from 'react';
-import weddingVideo from '../assets/wedding-reel.mp4';
+
 
 
 const VideoReel = () => {
@@ -15,7 +15,7 @@ const VideoReel = () => {
             playsInline
           >
             <source
-              src={weddingVideo}
+              src='/assets/wedding-reel.mp4'
               type="video/mp4"
             />
           </video>
@@ -39,7 +39,7 @@ const VideoReel = () => {
             playsInline
           >
             <source
-              src={weddingVideo}
+              src='/assets/wedding-reel.mp4'
               type="video/mp4"
             />
           </video>
