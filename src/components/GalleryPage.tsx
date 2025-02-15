@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, X, ChevronLeft, ChevronRight, ArrowUp } from 'lucide-react';
 
 interface GalleryPageProps {
   memories: Array<{
@@ -16,6 +16,20 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!memory) {
     return (
@@ -60,6 +74,10 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -73,7 +91,9 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
           </button>
         </div>
         <h1 className="text-4xl font-bold text-gray-900 mb-8">{memory.title} Gallery</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        {/* Updated Grid Layout for 6 images on desktop & 3 on mobile */}
+        <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-6">
           {memory.galleryImages.map((image, index) => (
             <div
               key={index}
@@ -120,6 +140,16 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
             <ChevronRight size={32} />
           </button>
         </div>
+      )}
+
+      {/* Scroll to Top Button */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition-all"
+        >
+          <ArrowUp size={24} />
+        </button>
       )}
     </div>
   );
