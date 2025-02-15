@@ -191,15 +191,61 @@ function App() {
     //   ],
     //   galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/marriage/image${i + 1}.jpg`)
     // },
-    // {
-    //   title: 'Reception',
-    //   description: 'A grand celebration of our love with friends and family, dancing the night away in pure joy.',
-    //   images: [
-    //     '/assets/reception/preview1.jpg',
-    //     '/assets/reception/preview2.jpg',
-    //   ],
-    //   galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/reception/image${i + 1}.jpg`)
-    // }
+    {
+      title: 'Reception',
+      description: 'A grand celebration of our love with friends and family, dancing the night away in pure joy.',
+      images: [
+        'assets/reception/DSC06224.JPG',
+        'assets/reception/DSC06322.JPG',
+      ],
+      galleryImages: [
+        "/assets/reception/DSC05981.JPG",
+        "/assets/reception/DSC05991.JPG",
+        "/assets/reception/DSC06002.JPG",
+        "/assets/reception/DSC06005.JPG",
+        "/assets/reception/DSC06015.JPG",
+        "/assets/reception/DSC06034.JPG",
+        "/assets/reception/DSC06042.JPG",
+        "/assets/reception/DSC06044.JPG",
+        "/assets/reception/DSC06045.JPG",
+        "/assets/reception/DSC06052.JPG",
+        "/assets/reception/DSC06055.JPG",
+        "/assets/reception/DSC06061.JPG",
+        "/assets/reception/DSC06063.JPG",
+        "/assets/reception/DSC06069.JPG",
+        "/assets/reception/DSC06075.JPG",
+        "/assets/reception/DSC06077.JPG",
+        "/assets/reception/DSC06079.JPG",
+        "/assets/reception/DSC06087.JPG",
+        "/assets/reception/DSC06098.JPG",
+        "/assets/reception/DSC06113.JPG",
+        "/assets/reception/DSC06117.JPG",
+        "/assets/reception/DSC06125.JPG",
+        "/assets/reception/DSC06135.JPG",
+        "/assets/reception/DSC06191.JPG",
+        "/assets/reception/DSC06194.JPG",
+        "/assets/reception/DSC06200.JPG",
+        "/assets/reception/DSC06215.JPG",
+        "/assets/reception/DSC06222.JPG",
+        "/assets/reception/DSC06223.JPG",
+        "/assets/reception/DSC06224.JPG",
+        "/assets/reception/DSC06273.JPG",
+        "/assets/reception/DSC06282.JPG",
+        "/assets/reception/DSC06322.JPG",
+        "/assets/reception/DSC06387.JPG",
+        "/assets/reception/DSC06394.JPG",
+        "/assets/reception/DSC06404.JPG",
+        "/assets/reception/DSC06414.JPG",
+        "/assets/reception/DSC06450.JPG",
+        "/assets/reception/DSC06459.JPG",
+        "/assets/reception/DSC06471.JPG",
+        "/assets/reception/DSC06583.JPG",
+        "/assets/reception/DSC06595.JPG",
+        "/assets/reception/DSC06611.JPG",
+        "/assets/reception/DSC06615.JPG",
+        "/assets/reception/DSC06707.JPG",
+      ]
+    }
   ];
 
   return (

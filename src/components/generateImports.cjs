@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Path to the folder containing your images (relative to the script's location)
-const imageFolder = path.join(__dirname, '../../public/assets/haldi');
+const imageFolder = path.join(__dirname, '../../public/assets/reception');
 
 // Output file where the imports will be written
 const outputFile = path.join(__dirname, '../../src/imageImports.js');
