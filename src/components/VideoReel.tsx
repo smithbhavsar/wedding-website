@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const VideoReel = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsMuted(false); // Unmute when in view
+        } else {
+          setIsMuted(true); // Mute when out of view
+        }
+      },
+      { threshold: 0.6 } // Adjust threshold for better visibility detection
+    );
+
+    const section = document.getElementById("video-reel-section");
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
   return (
-    <div className="relative h-screen bg-black">
+    <div id="video-reel-section" className="relative h-screen bg-black">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative w-full md:w-[50%] h-full">
           <video
+            ref={videoRef}
             className="w-full h-full object-cover"
             autoPlay
-            muted
             loop
             playsInline
+            muted={isMuted} // Toggle mute based on visibility
           >
-            <source
-              src='/assets/wedding-reel.mp4'
-              type="video/mp4"
-            />
+            <source src='/assets/wedding-reel.mp4' type="video/mp4" />
           </video>
         </div>
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
@@ -32,19 +53,16 @@ const VideoReel = () => {
           <video
             className="w-full h-full object-cover blur-xl scale-110 opacity-30"
             autoPlay
-            muted
             loop
             playsInline
+            muted
           >
-            <source
-              src='/assets/wedding-reel.mp4'
-              type="video/mp4"
-            />
+            <source src='/assets/wedding-reel.mp4' type="video/mp4" />
           </video>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default VideoReel;

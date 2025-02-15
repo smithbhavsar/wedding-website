@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Heart } from 'lucide-react';
+import { Heart, ArrowUp } from 'lucide-react';
 import Hero from './components/Hero';
 import VideoReel from './components/VideoReel';
 import MemorySection from './components/MemorySection';
 import GalleryPage from './components/GalleryPage';
 
 function App() {
+
   const memories = [
     {
       title: 'Mehendi',
@@ -31,7 +32,8 @@ function App() {
         '/assets/mehendi/JAY07217.JPG',
         '/assets/mehendi/JAY07242.JPG',
         '/assets/mehendi/JAY07253.JPG',
-      ]
+      ],
+      backgroundImage: "/assets/mehendi-bg.png"
     },
     {
       title: 'Sangeet',
@@ -88,7 +90,8 @@ function App() {
         '/assets/sangeet/JAY08479.JPG',
         '/assets/sangeet/JAY08487.JPG',
         '/assets/sangeet/JAY08492.JPG'
-      ]
+      ],
+      backgroundImage: "/assets/reception-bg.png"
     },
     {
       title: 'Haldi',
@@ -180,7 +183,8 @@ function App() {
         "/assets/haldi/JSP01313.JPG",
         "/assets/haldi/JSP01337.JPG",
         "/assets/haldi/JSP01355.JPG",
-      ]
+      ],
+      backgroundImage: "/assets/haldi-bg.png"
     },
     // {
     //   title: 'Marriage',
@@ -244,36 +248,78 @@ function App() {
         "/assets/reception/DSC06611.JPG",
         "/assets/reception/DSC06615.JPG",
         "/assets/reception/DSC06707.JPG",
-      ]
+      ],
+      backgroundImage: "/assets/reception-bg.png"
     }
   ];
 
+  // State to track when to show the scroll-to-top button
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  // Scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <Routes>
-      <Route path="/" element={
-        <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
-          <Hero />
-          <VideoReel />
-          <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <Heart className="w-12 h-12 text-pink-500 mx-auto mb-4" />
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Wedding Journey</h2>
-              <p className="text-lg text-gray-600">Reliving the beautiful moments of our special days</p>
+    <div className="relative">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
+              <Hero />
+              <VideoReel />
+              <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                  <Heart className="w-12 h-12 text-pink-500 mx-auto mb-4" />
+                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    Our Wedding Journey
+                  </h2>
+                  <p className="text-lg text-gray-600">
+                    Reliving the beautiful moments of our special days
+                  </p>
+                </div>
+                <div className="space-y-24">
+                  {memories.map((memory, index) => (
+                    <MemorySection
+                      key={memory.title}
+                      {...memory}
+                      reverse={index % 2 === 1}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="space-y-24">
-              {memories.map((memory, index) => (
-                <MemorySection
-                  key={memory.title}
-                  {...memory}
-                  reverse={index % 2 === 1}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      } />
-      <Route path="/gallery/:event" element={<GalleryPage memories={memories} />} />
-    </Routes>
+          }
+        />
+        <Route path="/gallery/:event" element={<GalleryPage memories={memories} />} />
+      </Routes>
+
+      {/* Scroll to Top Button */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition-all"
+        >
+          <ArrowUp size={24} />
+        </button>
+      )}
+    </div>
   );
 }
 
