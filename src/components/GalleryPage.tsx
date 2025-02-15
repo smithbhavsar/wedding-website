@@ -17,8 +17,6 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
-  console.log('memory', memory?.galleryImages);
-
   if (!memory) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -86,6 +84,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
                 src={image}
                 alt={`${memory.title} Gallery ${index + 1}`}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300" />
             </div>
