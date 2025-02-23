@@ -186,15 +186,15 @@ function App() {
       ],
       backgroundImage: "/assets/haldi-bg.png"
     },
-    // {
-    //   title: 'Marriage',
-    //   description: 'The moment we became one, promising forever under the sacred fire.',
-    //   images: [
-    //     '/assets/marriage/preview1.jpg',
-    //     '/assets/marriage/preview2.jpg',
-    //   ],
-    //   galleryImages: Array.from({ length: 12 }, (_, i) => `/assets/marriage/image${i + 1}.jpg`)
-    // },
+    {
+      title: 'Marriage',
+      description: 'The moment we became one, promising forever under the sacred fire.',
+      images: [
+        'assets/shaadi/JAY00301.jpg',
+        'assets/shaadi/JAY09965.JPG'
+      ],
+      galleryImages: []
+    },
     {
       title: 'Reception',
       description: 'A grand celebration of our love with friends and family, dancing the night away in pure joy.',

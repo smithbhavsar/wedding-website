@@ -302,6 +302,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
         <h1 className="text-4xl font-bold text-gray-900 mb-8">{memory.title} Gallery</h1>
 
         {/* Display shuffled images */}
+        {shuffledImages.length > 0 ? (
         <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-6">
           {shuffledImages.map((image, index) => (
             <div
@@ -319,8 +320,12 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ memories }) => {
             </div>
           ))}
         </div>
+        ) : (
+          <div className="text-center text-gray-700 text-lg font-semibold mt-10">
+            Coming Soon with More Exciting Pictures!
+          </div>
+        )}
       </div>
-
       {/* Lightbox Modal */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
