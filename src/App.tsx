@@ -222,6 +222,7 @@ function App() {
         "/assets/reception/DSC06079.JPG",
         "/assets/reception/DSC06087.JPG",
         "/assets/reception/DSC06098.JPG",
+        "/assets/reception/DSC06095.JPG",
         "/assets/reception/DSC06113.JPG",
         "/assets/reception/DSC06117.JPG",
         "/assets/reception/DSC06125.JPG",
